@@ -1,0 +1,17 @@
+version: v2
+managed:
+  enabled: true
+  override:
+    - file_option: go_package_prefix
+      value: github.com/osa030/19box-discordbot/internal/gen
+
+plugins:
+  # Go protobuf
+  - remote: buf.build/protocolbuffers/go
+    out: internal/gen
+    opt: paths=source_relative
+  # Connect RPC for Go
+  - remote: buf.build/connectrpc/go
+    out: internal/gen
+    opt: paths=source_relative
+
